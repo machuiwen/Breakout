@@ -10,9 +10,12 @@ import UIKit
 
 class BreakoutViewController: UIViewController, UIBreakoutViewDelegate {
     
+    // Game Settings
+    private let settings = BreakoutSettings()
+    
+    // Game View
     @IBOutlet weak var gameView: BreakoutView! {
         didSet {
-            gameView.delegate = self
             gameView.addGestureRecognizer(UITapGestureRecognizer(target: gameView, action: "pushBall"))
             let panRecognizer = UIPanGestureRecognizer(target: gameView, action: "movePaddle:")
             panRecognizer.maximumNumberOfTouches = 1
@@ -20,66 +23,76 @@ class BreakoutViewController: UIViewController, UIBreakoutViewDelegate {
         }
     }
     
-//    private var settings: BreakoutSettings {
-//        print("Load settings")
-//        return BreakoutSettings()
-//    }
-    
-    lazy var alert: UIAlertController = {
+    // Alert Controller
+    private lazy var alert: UIAlertController = {
         var lazyAlert = UIAlertController(
-            title: "You Win!",
-            message: "All bricks are eliminated!",
+            title: nil,
+            message: nil,
             preferredStyle: UIAlertControllerStyle.Alert
         )
         lazyAlert.addAction(UIAlertAction(
-            title: "Replay",
+            title: "Cancel",
+            style: .Cancel,
+            handler: nil)
+        )
+        lazyAlert.addAction(UIAlertAction(
+            title: "Retry",
             style:  .Default)
             { (action: UIAlertAction) -> Void in
                 self.gameView?.initUI()
             }
         )
-        lazyAlert.addAction(UIAlertAction(
-            title: "Cancel",
-            style: .Cancel)
-            { (action: UIAlertAction) -> Void in
-                // do nothing
-            }
-        )
         return lazyAlert
     }()
     
-    func gameEnded(breakoutView: BreakoutView) {
+    // Update game settings
+    private func updateSettings() {
+        if let gameView = gameView {
+            gameView.numOfRows = settings.numberOfBricks / gameView.numOfCols
+            gameView.ballBounciness = settings.ballBounciness
+            gameView.numOfBalls = settings.numberOfBalls
+            gameView.allowGravity = settings.gravity
+            print("game view has \(settings.numberOfBricks) bricks")
+        }
+    }
+    
+    // MARK: UIBreakoutViewDelegate
+    
+    func gameEnded(breakoutView: BreakoutView, win: Bool) {
+        if win {
+            alert.title = "You Win!"
+            alert.message = "All bricks are eliminated."
+        } else {
+            alert.title = "Game Over!"
+            alert.message = "You lose all balls."
+        }
         presentViewController(alert, animated: true, completion: nil)
     }
     
+    // MARK: ViewController life cycle
+    
+    // set gameView's delegate to be self
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // set delegate
+        gameView?.delegate = self
+    }
+    
+    // update settings
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        let settings = BreakoutSettings()
-        gameView.numOfRows = settings.numberOfBricks / gameView.numOfCols
-        gameView.ballBounciness = settings.ballBounciness
-        gameView.allowGravity = settings.gravity
-        print("game view has \(settings.numberOfBricks) bricks")
-        print("game view has \(settings.ballBounciness) ball bounciness")
-        gameView.initUI()
-        
+        updateSettings()
+        gameView?.initUI()
     }
-    //    private func updateSettings() {
-    ////        gameView?.numOfRows = settings.numberOfBricks / 5
-    //    }
     
-    //    override func viewDidLayoutSubviews() {
-    //        super.viewDidLayoutSubviews()
-    //        gameView?.initUI()
-    //    }
+    // stop animation
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        gameView?.animating = false
+    }
     
-    //
-    //    override func viewDidAppear(animated: Bool) {
-    //        super.viewDidAppear(animated)
-    //        gameView?.initUI()
-    //    }
-    //
-    //    override func viewWillDisappear(animated: Bool) {
-    //        super.viewWillDisappear(animated)
-    //        gameView?.animating = false
-    //    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+//        gameView?.initUI()
+    }
 }

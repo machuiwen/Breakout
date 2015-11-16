@@ -9,5 +9,6 @@
 import Foundation
 
 @objc protocol UIBreakoutViewDelegate {
-    func gameEnded(breakoutView: BreakoutView)
+    // tell the view controller game has ended
+    func gameEnded(breakoutView: BreakoutView, win: Bool)
 }

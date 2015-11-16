@@ -59,7 +59,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minimumValue="20" maximumValue="50" stepValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="nie-tk-E0W">
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minimumValue="20" maximumValue="40" stepValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="nie-tk-E0W">
                                                     <rect key="frame" x="490" y="7" width="94" height="29"/>
                                                     <connections>
                                                         <action selector="updateNumOfBricksLabel:" destination="zMP-EJ-vtT" eventType="valueChanged" id="B1Y-wZ-s80"/>

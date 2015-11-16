@@ -10,20 +10,26 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
+    // MARK: Model
+    
     private var settings = BreakoutSettings()
+    
+    // MARK: Outlets
     
     @IBOutlet private weak var numOfBricksStepper: UIStepper!
     @IBOutlet private weak var numOfBricksLabel: UILabel!
     @IBOutlet private weak var ballBouncinessSlider: UISlider!
     @IBOutlet private weak var numOfBallsSegControl: UISegmentedControl!
     @IBOutlet private weak var gravitySwitch: UISwitch!
-
     
+    // MARK: Actions
     @IBAction private func updateNumOfBricksLabel(sender: UIStepper) {
         numOfBricksLabel?.text = String(Int(sender.value))
     }
     
-    private func updateSettings() {
+    // MARK: Methods
+    
+    private func saveSettings() {
         settings.numberOfBricks = Int(numOfBricksStepper.value)
         settings.ballBounciness = ballBouncinessSlider.value
         settings.numberOfBalls = numOfBallsSegControl.selectedSegmentIndex + 1
@@ -31,18 +37,11 @@ class SettingsTableViewController: UITableViewController {
     }
     
     private func printSettings() {
-        print(settings.numberOfBricks)
-        print(settings.ballBounciness)
-        print(settings.numberOfBalls)
-        print(settings.gravity)
+        print("Number of bricks: \(settings.numberOfBricks)")
+        print("Ball bounciness: \(settings.ballBounciness)")
+        print("Number of balls: \(settings.numberOfBalls)")
+        print("Gravity: \(settings.gravity)")
         print("settings printed.")
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        updateSettings()
-        printSettings()
-        print("Settings saved.")
     }
     
     private func loadSettings() {
@@ -53,9 +52,19 @@ class SettingsTableViewController: UITableViewController {
         gravitySwitch?.setOn(settings.gravity, animated: false)
     }
 
+    // MARK: ViewController life cycle
+    
+    // Load settings before appear
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         loadSettings()
+    }
+    
+    // Save settings before disappear
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        saveSettings()
+        printSettings()
     }
 
 }

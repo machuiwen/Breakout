@@ -66,10 +66,10 @@
 			children = (
 				5D0A03151BF1CC310048FD9F /* BreakoutViewController.swift */,
 				5D0A03171BF1CC850048FD9F /* BreakoutView.swift */,
-				5DF222691BF960350056F292 /* UIBreakoutViewDelegate.swift */,
-				5D0A03191BF439800048FD9F /* BreakoutBehavior.swift */,
 				5D0A031B1BF47C2A0048FD9F /* SettingsTableViewController.swift */,
 				5D0A031D1BF59F440048FD9F /* BreakoutSettings.swift */,
+				5D0A03191BF439800048FD9F /* BreakoutBehavior.swift */,
+				5DF222691BF960350056F292 /* UIBreakoutViewDelegate.swift */,
 				5D0A03061BF1C9B30048FD9F /* Main.storyboard */,
 				5D0A03141BF1CB800048FD9F /* Supporting Files */,
 			);
