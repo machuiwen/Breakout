@@ -13,6 +13,10 @@
 		5D0A030D1BF1C9B30048FD9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D0A030B1BF1C9B30048FD9F /* LaunchScreen.storyboard */; };
 		5D0A03161BF1CC310048FD9F /* BreakoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A03151BF1CC310048FD9F /* BreakoutViewController.swift */; };
 		5D0A03181BF1CC850048FD9F /* BreakoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A03171BF1CC850048FD9F /* BreakoutView.swift */; };
+		5D0A031A1BF439800048FD9F /* BreakoutBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A03191BF439800048FD9F /* BreakoutBehavior.swift */; };
+		5D0A031C1BF47C2A0048FD9F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A031B1BF47C2A0048FD9F /* SettingsTableViewController.swift */; };
+		5D0A031E1BF59F440048FD9F /* BreakoutSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A031D1BF59F440048FD9F /* BreakoutSettings.swift */; };
+		5DF2226A1BF960350056F292 /* UIBreakoutViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF222691BF960350056F292 /* UIBreakoutViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		5D0A030E1BF1C9B30048FD9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D0A03151BF1CC310048FD9F /* BreakoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakoutViewController.swift; sourceTree = "<group>"; };
 		5D0A03171BF1CC850048FD9F /* BreakoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakoutView.swift; sourceTree = "<group>"; };
+		5D0A03191BF439800048FD9F /* BreakoutBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakoutBehavior.swift; sourceTree = "<group>"; };
+		5D0A031B1BF47C2A0048FD9F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		5D0A031D1BF59F440048FD9F /* BreakoutSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakoutSettings.swift; sourceTree = "<group>"; };
+		5DF222691BF960350056F292 /* UIBreakoutViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBreakoutViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,10 @@
 			children = (
 				5D0A03151BF1CC310048FD9F /* BreakoutViewController.swift */,
 				5D0A03171BF1CC850048FD9F /* BreakoutView.swift */,
+				5DF222691BF960350056F292 /* UIBreakoutViewDelegate.swift */,
+				5D0A03191BF439800048FD9F /* BreakoutBehavior.swift */,
+				5D0A031B1BF47C2A0048FD9F /* SettingsTableViewController.swift */,
+				5D0A031D1BF59F440048FD9F /* BreakoutSettings.swift */,
 				5D0A03061BF1C9B30048FD9F /* Main.storyboard */,
 				5D0A03141BF1CB800048FD9F /* Supporting Files */,
 			);
@@ -147,9 +159,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D0A031A1BF439800048FD9F /* BreakoutBehavior.swift in Sources */,
+				5DF2226A1BF960350056F292 /* UIBreakoutViewDelegate.swift in Sources */,
+				5D0A031C1BF47C2A0048FD9F /* SettingsTableViewController.swift in Sources */,
 				5D0A03181BF1CC850048FD9F /* BreakoutView.swift in Sources */,
 				5D0A03031BF1C9B30048FD9F /* AppDelegate.swift in Sources */,
 				5D0A03161BF1CC310048FD9F /* BreakoutViewController.swift in Sources */,
+				5D0A031E1BF59F440048FD9F /* BreakoutSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +315,7 @@
 				5D0A03131BF1C9B30048FD9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
